@@ -1,5 +1,6 @@
 package com.panjin.controller;
 
+import com.panjin.api.AccountApi;
 import com.panjin.dto.reqeust.CustomerReqDTO;
 import com.panjin.dto.response.CustomerRespDTO;
 import com.panjin.service.CustomerService;
@@ -16,6 +17,8 @@ public class CustomerController {
 
     @Autowired
     private CustomerService customerService;
+    @Autowired
+    AccountApi accountApi;
 
     @PostMapping(value = "/openCustomer")
     public CustomerRespDTO openCustomer(@RequestBody CustomerReqDTO customerReqDTO) {
@@ -25,4 +28,9 @@ public class CustomerController {
         return respDTO;
     }
 
+    @GetMapping(value = "/getAccount")
+    public String getAccount(@RequestParam String accountNo) {
+        String account = accountApi.getAccount(accountNo);
+        return "hello, customer invoke account " + account;
+    }
 }
