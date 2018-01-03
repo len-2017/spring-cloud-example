@@ -23,7 +23,7 @@ public class CustomerService {
     public Long openCustomer(CustomerReqDTO customerReqDTO) {
         Customer customer = new Customer();
         customer.setCustomerName(customerReqDTO.getThirdUserName());
-        customer.setCustomerId(new Random().nextLong());
+        customer.setCustomerId(new Random(1000000).nextLong());
         customer.setPhoneNo(customerReqDTO.getPhoneNo());
         customer.setCreatedBy("SYSTEM");
         customer.setCreatedTime(new Date());
