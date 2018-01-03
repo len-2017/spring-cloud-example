@@ -17,7 +17,7 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
-    @GetMapping(value = "/openCustomer")
+    @PostMapping(value = "/openCustomer")
     public CustomerRespDTO openCustomer(@RequestBody CustomerReqDTO customerReqDTO) {
         CustomerRespDTO respDTO = new CustomerRespDTO();
         respDTO.setCustomerName(customerReqDTO.getThirdUserName());
