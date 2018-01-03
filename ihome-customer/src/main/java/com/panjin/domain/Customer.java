@@ -22,7 +22,7 @@ public class Customer {
 
     private String phoneNo;
 
-    private Byte status;
+    private Integer status;
 
     private String createdBy;
 
