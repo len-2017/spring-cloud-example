@@ -1,12 +1,10 @@
 package com.panjin.mapper;
 
 import com.panjin.domain.Customer;
-import org.springframework.stereotype.Component;
 
 /**
  * @author panjin
  */
-@Component
 public interface CustomerMapper {
 
     int deleteByPrimaryKey(Long id);
