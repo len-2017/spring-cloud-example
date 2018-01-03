@@ -14,7 +14,7 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @EnableDiscoveryClient
 @MapperScan(basePackages = {"com.panjin.mapper"})
-@EnableFeignClients
+@EnableFeignClients(basePackages = {"com.panjin.api"})
 public class IhomeCustomerApplication {
 
     public static void main(String[] args) {

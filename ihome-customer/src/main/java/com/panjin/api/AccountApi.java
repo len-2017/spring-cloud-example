@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @date 2018/1/3.
  */
 @FeignClient(value = "ihome-account")
+@RequestMapping(value = "/account")
 public interface AccountApi {
 
-    @RequestMapping(value = "/account/getAccount", method = RequestMethod.GET)
-    String getAccount(@RequestParam String accountNo);
+    @RequestMapping(value = "/getAccount", method = RequestMethod.GET)
+    String getAccount(@RequestParam("accountNo") String accountNo);
 }
