@@ -5,7 +5,7 @@
 
 	<groupId>com.panjin</groupId>
 	<artifactId>parent</artifactId>
-	<version>0.0.3-SNAPSHOT</version>
+	<version>0.0.4-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>pj-parent</name>
@@ -23,6 +23,47 @@
 		<java.version>1.8</java.version>
 		<spring-cloud.version>Finchley.M5</spring-cloud.version>
 	</properties>
+
+	<profiles>
+		<profile>
+			<id>local</id>
+			<properties>
+				<profiles.activation>local</profiles.activation>
+				<eureka.address>http://localhost:8765/eureka</eureka.address>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<profiles.activation>dev</profiles.activation>
+				<eureka.address>http://localhost:8765/eureka</eureka.address>
+			</properties>
+		</profile>
+		<profile>
+			<id>tst</id>
+			<properties>
+				<profiles.activation>tst</profiles.activation>
+				<eureka.address>http://localhost:8765/eureka</eureka.address>
+			</properties>
+		</profile>
+		<profile>
+			<id>uat</id>
+			<properties>
+				<profiles.activation>uat</profiles.activation>
+				<eureka.address>http://localhost:8765/eureka</eureka.address>
+			</properties>
+		</profile>
+		<profile>
+			<id>prd</id>
+			<properties>
+				<profiles.activation>prd</profiles.activation>
+				<eureka.address>http://localhost:8765/eureka</eureka.address>
+			</properties>
+		</profile>
+	</profiles>
 
 	<distributionManagement>
 		<repository>
