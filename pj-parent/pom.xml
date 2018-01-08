@@ -24,6 +24,8 @@
 		<spring-cloud.version>Finchley.M5</spring-cloud.version>
 	</properties>
 
+	<!--1、mvn install package deploy 没有指定profile，默认为local-->
+	<!--2、mvn install package deploy -Pdev 指定profile为dev-->
 	<profiles>
 		<profile>
 			<id>local</id>
