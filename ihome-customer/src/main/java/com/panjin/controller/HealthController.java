@@ -14,7 +14,11 @@ public class HealthController {
 
     @GetMapping(value = "/health")
     public String health() {
-        log.info("--------------------health-------------------");
+        log.trace("--------------------trace health--------------------");
+        log.debug("--------------------debug health--------------------");
+        log.info("--------------------info health-------------------");
+        log.warn("--------------------warn health--------------------");
+        log.error("--------------------error health--------------------");
         return "hello, customer!";
     }
 }
