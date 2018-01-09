@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Required;
 import org.springframework.web.bind.annotation.*;
 import sun.font.TrueTypeFont;
 
+import javax.annotation.Resource;
+
 /**
  * @author panjin.
  * @date 2018/1/3.
@@ -23,7 +25,7 @@ public class CustomerController {
 
     @Autowired
     private CustomerService customerService;
-    @Autowired
+    @Resource
     AccountApi accountApi;
 
     @ApiOperation(value = "开户")

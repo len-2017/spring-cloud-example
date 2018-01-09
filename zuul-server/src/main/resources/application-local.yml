@@ -42,3 +42,16 @@ zuul:
       path: /account/**
       serviceId: ihome-account
 
+#如果下游接口配置了熔断需要配置超时，要不有bug
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+
+#如果下游接口配置了熔断需要配置超时，要不有bug
+ribbon:
+  ConnectTimeout: 3000
+  ReadTimeout: 60000
