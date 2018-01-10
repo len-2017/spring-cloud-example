@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <property name="LOG_PATH" value="/Users/panjin/logs/" />
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+    <!-- 开启后可以通过jmx动态控制日志级别(springboot Admin的功能) -->
+    <!--<jmxConfigurator/> -->
+    <!--设置系统日志目录 -->
+    <property name="SERVER_NAME" value="ihome-customer" />
+
+    <appender name="pjLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <charset>utf-8</charset>
+        </encoder>
+        <file>${LOG_PATH}/${SERVER_NAME}/${SERVER_NAME}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/${SERVER_NAME}/${SERVER_NAME}.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>DEBUG</level>
+        </filter>
+    </appender>
+    <appender name="pjErrorLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <charset>utf-8</charset>
+        </encoder>
+        <file>${LOG_PATH}/${SERVER_NAME}/${SERVER_NAME}-error.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/${SERVER_NAME}/${SERVER_NAME}-error.%d{yyyy-MM-dd}.%i.log.gz
+            </fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>WARN</level>
+        </filter>
+    </appender>
+
+
+    <!-- 测试环境+开发环境. 多个使用逗号隔开. -->
+    <springProfile name="local">
+        <logger name="org.springframework" level="INFO" additivity="false"/>
+        <logger name="com.panjin" level="DEBUG" additivity="false"/>
+    </springProfile>
+    <springProfile name="dev,tst,uat">
+        <logger name="org.springframework" level="INFO" additivity="false"/>
+        <logger name="com.panjin" level="DEBUG" additivity="false"/>
+    </springProfile>
+    <!-- 生产环境. -->
+    <springProfile name="prd">
+        <logger name="org.springframework" level="WARN" additivity="false"/>
+        <logger name="com.panjin" level="INFO" additivity="false"/>
+    </springProfile>
+    <root level="${LOG_ROOT_LEVEL}">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="pjLog" />
+        <appender-ref ref="pjErrorLog" />
+    </root>
+</configuration>
