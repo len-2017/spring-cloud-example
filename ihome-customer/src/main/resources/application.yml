@@ -47,3 +47,9 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 60000
+
+logging:
+#  level.root: INFO
+#  level.com.panjin: DEBUG
+#  path: /Users/panjin/logs/
+  config: classpath:logback-sping.xml
