@@ -2,7 +2,7 @@
 <configuration>
 
     <include resource="org/springframework/boot/logging/logback/defaults.xml" />
-    <property name="LOG_PATH" value="/Users/panjin/logs/" />
+    <property name="LOG_PATH" value="${LOG_PATH}" />
     <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
     <!-- 开启后可以通过jmx动态控制日志级别(springboot Admin的功能) -->
     <!--<jmxConfigurator/> -->

@@ -27,9 +27,6 @@ spring:
         git:
           uri: https://github.com/panjin-sz/spring-cloud-config
           search-paths: /*
-          #用户名和密码，如果是公有库，可以不配置
-                    #username: panjin-sz
-                    #password: xxx
       label: master
 
 server:
