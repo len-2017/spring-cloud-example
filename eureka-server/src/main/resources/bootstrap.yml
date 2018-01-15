@@ -1,5 +1,3 @@
-server:
-  port: 8765
 eureka:
   client:
     # 声明是否将自己到信息注册到eureka服务器

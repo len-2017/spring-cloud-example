@@ -11,9 +11,6 @@ eureka:
     service-url:
       defaultZone: @eureka.address@
 
-server:
-  port: 8768
-
 zuul:
   routes:
     customer:
