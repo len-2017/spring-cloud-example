@@ -7,6 +7,7 @@ import com.panjin.service.CustomerService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +22,7 @@ import javax.annotation.Resource;
 @Api(value = "会员服务")
 @RestController
 @RequestMapping(value = "/customer")
+@Slf4j
 public class CustomerController {
 
     @Autowired
@@ -42,6 +44,7 @@ public class CustomerController {
     @ApiOperation(value = "获取账户信息")
     @ApiImplicitParam(name = "accountNo", value = "账号", required = true, paramType = "query", dataType = "String")
     public String getAccount(@RequestParam(value = "accountNo", required = true) String accountNo) {
+        log.info("getAccount request, accountNo is {}", accountNo);
         String account = accountApi.getAccount(accountNo);
         return "hello, customer invoke account " + account;
     }

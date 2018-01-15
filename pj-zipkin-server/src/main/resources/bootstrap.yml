@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: @project.artifactId@
+  profiles:
+    active: @profiles.activation@
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: @eureka.address@
+
+feign:
+  hystrix:
+    enabled: true
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
