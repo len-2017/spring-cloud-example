@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import sun.font.TrueTypeFont;
 
 import javax.annotation.Resource;
+import java.util.Random;
 
 /**
  * @author panjin.
@@ -47,5 +48,16 @@ public class CustomerController {
         log.info("getAccount request, accountNo is {}", accountNo);
         String account = accountApi.getAccount(accountNo);
         return "hello, customer invoke account " + account;
+    }
+
+    @GetMapping(value = "/getCustomerInfo")
+    @ApiOperation(value = "获取用户信息")
+    @ApiImplicitParam(name = "accountNo", value = "账号", required = true, paramType = "query", dataType = "String")
+    public CustomerRespDTO getCustomerInfo(@RequestParam(value = "customerId", required = true) Long customerId) {
+        log.info("getCustomerInfo request, customerId is {}", customerId);
+        CustomerRespDTO respDTO = new CustomerRespDTO();
+        respDTO.setCustomerName("thirdUser"+new Random().nextInt(1000));
+        respDTO.setCustomerId(customerId);
+        return respDTO;
     }
 }

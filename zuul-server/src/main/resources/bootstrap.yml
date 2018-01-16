@@ -3,6 +3,11 @@ spring:
     name: @project.artifactId@
   profiles:
     active: @profiles.activation@
+  sleuth:
+    sampler:
+      percentage: 1
+  zipkin:
+    base-url: http://localhost:9441
 
 eureka:
   instance:
