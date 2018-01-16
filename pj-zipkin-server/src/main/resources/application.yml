@@ -1,4 +1,0 @@
-server:
-  port: 8771
-logging:
-  level.org.springframework.web.servlet.DispatcherServlet: debug
