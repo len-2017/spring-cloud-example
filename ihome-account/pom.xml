@@ -61,16 +61,19 @@
 
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-sleuth-zipkin-stream</artifactId>
-			<version>LATEST</version>
+			<artifactId>spring-cloud-starter-zipkin</artifactId>
 		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.amqp</groupId>-->
+			<!--<artifactId>spring-rabbit</artifactId>-->
+		<!--</dependency>-->
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-stream-kafka</artifactId>
+			<groupId>org.springframework.kafka</groupId>
+			<artifactId>spring-kafka</artifactId>
 		</dependency>
 		<!--<dependency>-->
 			<!--<groupId>org.springframework.cloud</groupId>-->
-			<!--<artifactId>spring-cloud-starter-zipkin</artifactId>-->
+			<!--<artifactId>spring-cloud-starter-stream-kafka</artifactId>-->
 		<!--</dependency>-->
 	</dependencies>
 
