@@ -7,7 +7,19 @@ spring:
     sampler:
       percentage: 1
   zipkin:
-    base-url: http://localhost:9441
+    enabled: true
+    sender:
+#      type: kafka
+      type: rabbit
+  #  kafka:
+  #    bootstrap-servers: 127.0.0.1:9092
+  #    bootstrap-servers: 192.168.152.130:9092
+  rabbitmq:
+    host: 192.168.152.128
+#    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 
 eureka:
   instance:

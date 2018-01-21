@@ -6,20 +6,17 @@ spring:
   sleuth:
     sampler:
       percentage: 1.0
-#  cloud:
-#    stream:
-#      kafka:
-#        binder:
-#          brokers: 127.0.0.1:9092
-#          zkNodes: 127.0.0.1:2181
   zipkin:
     enabled: true
     sender:
-      type: kafka
-  kafka:
-    bootstrap-servers: 127.0.0.1:9092
+#      type: kafka
+      type: rabbit
+#  kafka:
+#    bootstrap-servers: 127.0.0.1:9092
+#    bootstrap-servers: 192.168.152.130:9092
   rabbitmq:
-    host: localhost
+    host: 192.168.152.128
+#    host: localhost
     port: 5672
     username: guest
     password: guest

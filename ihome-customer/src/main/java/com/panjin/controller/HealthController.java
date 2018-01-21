@@ -26,4 +26,10 @@ public class HealthController {
         log.info("from is {}", from);
         return "hello, customer!";
     }
+
+    @GetMapping(value = "/customerException")
+    public String customerException() {
+        log.info("--------------------test exception--------------------");
+        throw new RuntimeException("this is ihome-customer occur exception");
+    }
 }
